@@ -1,0 +1,174 @@
+page{
+  position: relative;
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+  box-shadow: 0px 1px 2px #c9c9c9;
+  overflow: hidden;
+}
+.optionsBox{
+  display: flex;
+  display: -webkit-box;
+  white-space: nowrap;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.options{
+  display: inline-block;
+  width: 100rpx;
+  height: 100%;
+  padding: 0 24rpx;
+  font-size: 34rpx;
+  text-align: center;
+  background: #fff;
+  transition: color 0.15s;
+}
+.current{
+  color: #97B82D;
+}
+.bar{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 148rpx;
+  height: 6rpx;
+  background: #96B929;
+  transition: left 0.2s;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  background: #EDECE8;
+  border-top: 1rpx solid #aaa;
+  z-index: 9;
+}
+.footer .footerbox{
+  display: flex;
+}
+.group{
+  flex-grow: 3;
+  padding-left: 36rpx;
+}
+.checkbox{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.footer checkbox{
+  position: inherit;
+  right: inherit;
+}
+checkbox{
+  /* opacity: 0; */
+  position: absolute;
+  right: 0;
+  margin-right: 18rpx;
+}
+checkbox-group .checkbox .i{
+  background-image: url(https://static.sysshu.com/static/img/sprite.6a09c2f.png);
+  background-position: 0px -344px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+checkbox-group .checkbox .ii{
+  background-image: url(https://static.sysshu.com/static/img/sprite.6a09c2f.png);
+  background-position: 0px -324px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.footer button{
+  flex-grow: 1;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 0px;
+  position: initial;
+  background: #96B929;
+  line-height: inherit;
+  margin-left: 0!important;
+  margin-right: 0!important;
+  padding-left: 30rpx!important;
+  padding-right: 30rpx!important;
+}
+.footer .bcbtn::after{
+  content: none;
+  width: 30%!important; 
+  height: 100%!important;
+  border:1px solid rgba(0, 0, 0, 0.0)!important;
+  outline: none;
+}
+
+.main{
+  position: absolute;
+  left: 0;
+  right: 0; 
+  top: 90rpx;
+  width: 100%;
+  padding-bottom: 90rpx;
+}
+.list-box{
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+}
+.groups{
+  flex-grow: 1;
+}
+.groups .checkbox{
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0; 
+  margin-top: 18rpx;
+  background: #fff;
+}
+.groups .checkbox .etitle{
+  display: inline-block;
+  width: 80%;
+  margin-left: 40rpx;
+}
+checkbox-group .checkbox .ic, checkbox-group .checkbox .iic{
+  left: inherit!important;
+  right: 40rpx;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.lefticon{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 100%;
+  width: 10rpx;
+  background: #96B929;
+}
+
+

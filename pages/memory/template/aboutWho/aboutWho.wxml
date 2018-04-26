@@ -1,0 +1,10 @@
+<template name='aboutWho'>
+    <view class='relation-choice'>
+        <view class='relation-choice-text'>关于谁</view>
+        <picker value='{{index}}' range='{{relations}}' range-key='showName' bindchange='relationsChange' class='relation-choice-picker' name='relationsPicker'>
+            <view class='picker'>
+                {{relations[index].showName}} >
+            </view>
+        </picker>
+    </view>
+</template>

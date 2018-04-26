@@ -1,0 +1,21 @@
+<view class='timeline_box'>
+  <!-- <image src='/icon/main_bg.jpg' class='timeline_box_image'></image> -->
+  <view class='inner'>
+    <view class='inner_logo'>
+      <image src='/icon/logo.png' mode="widthFix"></image>
+    </view>
+    
+     <!-- <button bindtap='navigateTo' data-to="/pages/memory/memoryGuide/memoryGuide" class='entrance_button'>为亲人制作回想录</button>
+    <button bindtap='navigateTo'  data-to="/pages/memory/cover/cover" class='entrance_button'>为亲人制作家谱</button>  -->
+
+    <view class='inner_bottom'>
+      <!-- <image src="https://ohc5vthqm.qnssl.com/wx-image/2017-12-28/person1.jpg" class='yindao_image' mode="aspectFill"></image> -->
+      <view class='inner_bottom_left'></view>
+      <view class='inner_bottom_middle'>
+        <button bindtap='navigateTo' data-to="/pages/memory/memoryGuide/memoryGuide" class='entrance_button'>为亲人制作回想录</button>
+        <button bindtap='navigateTo'  data-to="/pages/memory/cover/cover" class='entrance_button'>为亲人制作家谱</button>
+      </view>
+      <view class='inner_bottom_right'></view>
+    </view>
+  </view>
+</view>

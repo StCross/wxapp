@@ -1,0 +1,79 @@
+
+<view class='main'>
+  <view class='content'>
+    <view class='content-title'>{{eventData.eventTitle}}</view>
+    <view class='person'>
+      <text class='time'>时间： {{eventTime.year}}年</text>
+    </view>
+    <view wx:if="{{eventData.list}}" class='avResouce'>
+      <block wx:for="{{eventData.list}}" wx:key="{{eventData.eventId}}">
+        <view wx:if="{{item.fileType == 1 && isVilevel}}">
+          <video src="{{item.urlToken}}" controls='true' custom-cache="{{false}}"></video>
+        </view>
+        <view wx:if="{{item.fileType == 3}}">
+          <audio src="{{item.urlToken}}" controls></audio>
+        </view>
+      </block>
+    </view>
+    <view class='detail' wx:if="{{eventData.eventContent}}">
+      <text>{{eventData.eventContent}}</text>
+    </view>
+    <view wx:if="{{eventData.list}}" class='header-Img'>
+      <block wx:for="{{eventData.list}}" wx:key="{{eventData.eventId}}">
+        <view wx:if="{{item.fileType == 2}}">
+          <image src="{{item.urlToken}}" mode='widthFix'></image>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 评论 -->
+  <view class='commentbox'>
+    <view class='commheader'>收集到的回忆</view>
+    <block wx:for="{{commlist}}" wx:key="{{item.comment.id}}">
+      <view class='commList'>
+        <view class='commavatar'>
+          <image src='{{item.passerby.avatar}}' mode='aspectFill'></image>
+        </view>
+        <view class='commInfobox'>
+          <view class='name'>{{item.passerby.nickname}}</view>
+          <view id='commInfo' class='commInfo'>{{item.comment.content}}</view>
+          <view class='imglist' wx:if="{{item.commentResources.length > 0}}">
+            <image class='imgs' src='{{imgs.urlFrameCapture}}' wx:for="{{item.commentResources}}" wx:for-item="imgs" wx:key="{{imgs.id}}" mode='aspectFill' data-url='{{imgs.urlFrameCapture}}' bindtap='previewImg'></image>
+          </view>
+          <view class='commfooter'>
+            <view class='commdate'>{{item.date}}</view>
+            <view class='likebox'>
+              <image src='../../../icon/Like-sel.png'></image>
+              <view class='agreenumber'>{{item.agree}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{commlist.length === 0}}" class='listnull'>还没有人贡献回忆呢</view>
+  </view>
+  <view class='footer'>
+    <view bindtap="deleteEvent">删除</view>
+    <view class='share'>
+      <button class='fxbtn' bindtap='showSharebox'>收集回忆</button>
+    </view>
+    <view bindtap="editEvent">编辑</view>
+  </view>
+</view>
+<!-- 收集回忆 -->
+<view wx:if="{{showShare}}" class='hxpopUp'>
+  <view class='hxpopUpbox'>
+    <view class='hxpoptop'>
+      <view class='hxptitle'>我正在为{{personInfo.surname+personInfo.name}}创建回忆录</view>
+      <view class='hxbg' style="background-image:url({{personInfo.fmResource.urlFrameCapture || defaultUrl}})"></view>
+      <input class='hxpopInt' type='text' bindinput='bindShareIn' value='{{shareInput}}'></input>
+    </view>
+    <view class='hxbtnBox'>
+      <view class='hxicon'></view>
+      <button class='hxbtn' open-type="share">分享给微信好友</button>
+    </view>
+    <view class='hxcloseIcon'></view>
+  </view>
+  <view class='hxpopmask' bindtap='showSharebox'></view>
+</view>
+<loading hidden="{{!loading}}">加载中...</loading>

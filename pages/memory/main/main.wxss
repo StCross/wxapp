@@ -1,0 +1,63 @@
+.timeline_box{
+  width: 100%;
+  height: 100%;
+  background: url(https://ohc5vthqm.qnssl.com/wx-image/2017-12-28/main_bg.jpg) no-repeat fixed;
+  background-position: top left;
+  background-size: 100% auto;
+  position: fixed;
+}
+.inner{
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  bottom: 0;
+}
+.inner button{
+  width: 50%;
+  background: red;
+  color: white;
+  margin-bottom: 20rpx;
+}
+.inner_logo{
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+.inner_logo image{
+  width: 50%;
+  height: auto;
+}
+.inner_bottom{
+  width: 100%;
+  height: 80%;
+  position: relative;
+   display: flex;
+  justify-content: space-between; 
+}
+ .inner_bottom_left{
+   width: 28%; 
+   height: 100%;
+  background: url(https://ohc5vthqm.qnssl.com/wx-image/2017-12-28/person2.png) no-repeat;
+  background-position: 0 0;
+  background-size: auto 100%;
+} 
+.inner_bottom_middle{
+  width: 44%;
+  margin-top: 300rpx;  
+}
+.inner_bottom_middle button{
+  width: 100%;
+  height: 80rpx;
+  border-radius: 40rpx;
+  line-height: 80rpx;
+  background: #97b82b;
+  color: #fff;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+}
+ .inner_bottom_right{
+  width: 28%; 
+  background: url(https://ohc5vthqm.qnssl.com/wx-image/2017-12-28/person1.png) no-repeat;
+  background-position: top right;
+  background-size: auto 100%;
+ }

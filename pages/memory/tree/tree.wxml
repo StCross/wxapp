@@ -1,0 +1,26 @@
+ <web-view src="{{url}}" style='position: absolute; width: {{window_width}}px; height: {{window_height - 40}}px;'>
+</web-view> 
+
+
+
+
+<!-- <view class='container'>
+  <view class='tree-container'>
+    <view class='tree-header'></view>
+    <canvas style='position: absolute; width: {{window_width}}px; height: {{window_height - 40}}px'
+            canvas-id='treeCanvas'
+            disable-scroll='true' bindtouchstart='onTouchStart' bindtouchmove='onTouchMove'
+            bindtouchend='onTouchEnd'></canvas> 
+   
+    <canvas
+      style='position: absolute; width: {{person_tooltip_canvas_width}}px; height: {{person_tooltip_canvas_height}}px; left: {{person_tooltip_canvas_left}}px; top: {{person_tooltip_canvas_top}}px;'
+      class='person-tooltip-canvas' canvas-id='personTooltipCanvas' bindtouchstart='onPersonTooltipClick'></canvas>
+    <view class='tree-bottom-toolbar'>
+      <view class='tree-bottom-button' bindtap='onScaleIn'>放大</view>
+      <view class='tree-bottom-button' bindtap='onScaleOut'>缩小</view>
+      <view class='tree-bottom-button' bindtap='onReturnToMyselfClick'>我在哪</view>
+      <view class='tree-bottom-button tree-bottom-button-last' bindtap='onMenuClick'>更多</view>
+    </view>
+  </view>
+</view>
+<loading hidden="{{!loading}}">加载中...</loading> -->

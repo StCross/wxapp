@@ -1,0 +1,95 @@
+<view class='line'>
+  <view class="header-view">
+    <view class='bg-blur header jianbian-bottom-to-top' style="background-image: url({{personfm || defaultCover}});"></view>
+    <view class='header-mask new_mask'></view>
+    <view class="header-content-container">
+      <view class="header-avatar-container" bindtap='enterInfoEdit'>
+        <image class="header-avatar-image" src="{{persontx || '/icon/person-image.png'}}" mode="aspectFill"/>
+        <label wx:if="{{shownick}}" class='header-avater-label'>{{perInfo.surname + perInfo.name}}的回想录</label>
+      </view>
+    </view>
+  </view>
+  <!--列表  -->
+  <view class='listBox'>
+    <block wx:for="{{eventLists}}" wx:key="{{item.eventId}}">
+      <!-- <block wx:if="{{item.title&&item.thumbnail}}"> -->
+        <view class='body-view'>
+          <view class='timeline-zhou'>
+            <view class='thisline'></view>
+            <view class='ringbox'>
+              <view class='ring'></view>
+            </view> 
+          </view>
+          <view class="{{item.reType == 3?'adiuobg':''}} left-view" wx:if="{{item.eventType == '1'}}"  data-eventId="{{item.eventId}}"  bindtap="eventClick">
+            <view class='personDate'>
+              <view class='dateBox'>
+                <view class='year'>{{item.startYear}}</view>
+                <view wx:if="{{item.specialType === 1}}" class='birth'>出生</view>
+                <view wx:if="{{item.age > 0}}" class='personage birth'>{{item.ageText}}</view>
+                <!-- <view wx:if="{{item.age < 0}}" class='personage birth'></view>   -->
+              </view>
+            </view>
+            <view class='personEvent'>
+              <view class='title'>{{item.newEventTitle}}</view>
+              <!--有描述无资源  -->
+              <view class='descripe'  wx:if="{{item.resources.length == 0}}">
+                <text wx:if="{{item.eventContent}}" class='texts'>{{item.newContent}}</text>
+                <text wx:if="{{!item.eventContent}}" class='texts'>{{item.detailDate}}</text>
+              </view>
+              <!--视频  -->
+              <view class='imgList onlyVideo' wx:if="{{item.reType == 2}}">
+                <image src="{{item.reList[0].urlFrameCapture}}" mode='aspectFill'></image>
+                <text class='play'></text>
+              </view>
+              <!--录音  -->
+              <view class='imgList onlyAudio' wx:if="{{item.reType == 3}}">
+                <image src='../../../icon/record-icon.png'></image>
+                <text>{{item.onlyaudio}}</text>
+              </view>
+              <!--图片  -->
+              <view class='imgList onlyImg' wx:if="{{item.reType == 4}}">  
+                <image src="{{item.reList[0].urlFrameCapture}}" mode='aspectFill'></image>
+              </view> 
+              <!--各种资源  -->
+              <view class='imgList' wx:if="{{item.reType == 5}}">  
+                <view wx:if="{{item.count}}" class='moreCount'>+{{item.count}}</view>
+                <block wx:for="{{item.reList}}" wx:for-item="list" wx:key="{{list.id}}"> 
+                  <view wx:if="{{list.fileType == 1}}" class='mores'>
+                    <image src="{{list.urlFrameCapture}}" class='content-img vs' mode='aspectFill'></image>
+                    <text class='play'></text>
+                  </view>
+                  <view wx:if="{{list.fileType == 3}}" class='moreadiuo mores'>
+                    <image src='../../../icon/ripple.png'></image>
+                    <view>{{item.moreaudio}}</view> 
+                  </view>
+                  <view wx:if="{{list.fileType == 2}}" class='mores'>
+                    <image src="{{list.urlFrameCapture}}" class='content-img Imgs' mode='aspectFill'></image>
+                  </view>
+                </block>
+              </view> 
+            </view>
+          </view>
+          <!--回忆问答  -->
+          <view class='left-view bgcolor' bindtap='eventEdit' wx:if="{{item.eventType == '3'}}" data-eventId="{{item.eventId}}">
+            <view class='addleft'>
+              <view wx:if="{{!item.eventYear}}" class='eventsadd'>
+                <image src='../../../icon/addevent.png'></image>
+              </view>
+            </view>
+            <view class='mEvents personEvent'>
+              <view class='title' data-title="{{item.eventTitle}}">{{item.newEventTitle}}</view>
+              <view wx class='record-time'>快来添加回忆吧</view>
+            </view>
+          </view> 
+        </view>
+      <!-- </block> -->
+    </block>
+  </view>
+</view>
+<view class='footbtn'>
+  <view class='add-memoir addmeshadow' bindtap='enterEventAdd'>
+    添加回忆<image src="/icon/addevent.png" class='add-Person'></image>
+  </view>
+  <view class='add-memoir qa addmeshadow' bindtap='enterqa'>回忆问答</view>
+</view>
+<loading hidden="{{!loading}}">加载中...</loading>

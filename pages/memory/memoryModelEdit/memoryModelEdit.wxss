@@ -1,0 +1,4 @@
+/* pages/memory/memoryAdd/memoryAdd.wxss */
+page{
+  position: relative;
+}

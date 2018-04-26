@@ -1,0 +1,18 @@
+<view class='container'>
+  <view class='tree-container'>
+    <view class='tree-header'></view>
+    <view class='tree-box'>
+        <view class='tree-wrap'>
+            <web-view src="https://www.sysshu.com/"></web-view>
+        </view>
+    </view>
+    <view class='tree-bottom-toolbar'>
+      <view class='tree-bottom-button' bindtap='onScaleIn'>放大</view>
+      <view class='tree-bottom-button' bindtap='onScaleOut'>缩小</view>
+      <view class='tree-bottom-button' bindtap='onReturnToMyselfClick'>我在哪</view>
+      <view class='tree-bottom-button tree-bottom-button-last' bindtap='onMenuClick'>更多</view>
+    </view>
+  </view>
+
+</view>
+<loading hidden="{{!loading}}">加载中...</loading>

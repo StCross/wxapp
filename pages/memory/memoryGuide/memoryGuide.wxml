@@ -1,0 +1,29 @@
+<view class='family'>
+  <view class='header'>
+    <image src="../../../icon/home.jpg" mode='aspectFill'></image>
+  </view>
+  <view class='main'>
+    <block wx:for="{{memory_list}}" wx:key="{{item.personId}}">
+      <view class='creator shadow' bindlongpress="onlangDelete" bindtap="personClick" data-id='{{item.personId}}' data-year='{{item.birthday ? item.birthday : ""}}'>
+        <view class='shade' style="background-image:url({{item.fmResource.urlFrameCapture||defaultBg}})"></view>
+        <view class='create-person'>
+          <view class='person'>
+            <image class='personImg' src="{{item.resource.urlFrameCapture || '/icon/person-image.png'}}" mode='aspectFill'></image>
+            <text class='text-shadow'>{{item.nickname || item.surname + item.name}}的回想录</text>
+          </view>
+          <view class='story'>
+            <text class='text-shadow'>事件</text>
+            <text class='count text-shadow'>{{item.eventNum}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class='create shadow' bindtap="entryAddTree">
+      <view class='Img'>
+        <image src="../../../icon/add_01.png"></image>
+      </view>
+      创建一个新的回想录
+    </view>
+  </view>
+</view>
+<loading hidden="{{!loading}}">加载中...</loading>

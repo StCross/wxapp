@@ -1,0 +1,102 @@
+<form class='page-form' bindsubmit="formSubmit" bindreset="formReset">
+  <view class='page'>
+    <view class='page__bd page-body'>
+      <view class='weui-cells form-cells'>
+        <view class="weui-cell uploader-cell block">
+          <view class="weui-cell__bd uploader-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title uploader-title">头像</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files">
+                  <view class="weui-uploader__file" bindtap="onAvatarChange">
+                    <image class="weui-uploader__img avatar-image"
+                           src="{{avatarUrlLocal || person.avatarUrl || '/icon/avatar.png'}}" mode="aspectFill"  />
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="new_weui-cell weui-cell_input block weui-top">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="surname" placeholder="姓氏" value="{{person.surname}}" disabled="{{!isEditable}}"  />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input block">
+          <view class="weui-cell__hd">
+            <view class="weui-label">名</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="name" placeholder="名字" value="{{person.name}}" disabled="{{!isEditable}}"  />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input block">
+          <view class="weui-cell__hd">
+            <view class="weui-label">
+              <view class="required">*</view>
+              昵称</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="nickname" placeholder="请输入昵称（必填）" value="{{person.nickname}}" disabled="{{!isEditable}}" />
+            </view>
+          </view>
+          <block wx:if="{{!isRelatedPerson}}">
+            <view class="weui-cell weui-cell_select block">
+              <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">性别</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker bindchange="onGenderChange" value="{{gender_index}}" range="{{genderShowName}}" disabled="{{!isEditable}}">
+                  <view class="weui-select weui-select_in-select-after">{{genderShowName[gender_index]}}</view>
+                </picker>
+              </view>
+            </view>
+          </block>
+          <view class="weui-cell weui-cell_select block">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+              <view class="weui-label">出生日期</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker mode="date" value="{{birthday}}" start="1600-01-01" end="{{nowDate}}"
+                      bindchange="onBirthDateChange" disabled="{{!isEditable}}">
+                <view class="weui-select weui-select_in-select-after">{{birthday}}</view>
+              </picker>
+            </view>
+          </view>
+          <block wx:if="{{person.creator && person.creator.id}}">
+            <view class="user-cell">
+              <view class="user-cell-hd">
+                <view class="user-cell-left-label">创建人</view>
+              </view>
+              <view class="user-cell-avatar">
+                <image class="user-cell-avatar-image" src="{{person.creator.avatarUrl || '/icon/avatar.png'}}"
+                       mode="aspectFill"  />
+              </view>
+              <view class="user-cell-name">{{person.creator.nickname}}</view>
+            </view>
+          </block>
+          <block wx:if="{{person.binder && person.binder.id}}">
+            <view class="user-cell">
+              <view class="user-cell-hd">
+                <view class="user-cell-left-label">认领人</view>
+              </view>
+              <view class="user-cell-avatar">
+                <image class="user-cell-avatar-image" src="{{person.binder.avatarUrl || '/icon/avatar.png'}}" mode="aspectFill"  />
+              </view>
+              <view class="user-cell-name">{{person.binder.nickname}}</view>
+            </view>
+          </block>
+        </view>
+        <view class="page__bd_spacing form-bottom-buttons">
+          <button class="bottom-button" form-type="submit" type="primary" disabled="{{!isEditable}}">确定</button>
+          <button class="bottom-button" type="default" bindtap="onCancel">取消</button>
+        </view>
+      </view>
+    </view>
+  </form>
+  <loading hidden="{{!loading}}">提交信息中...</loading>

@@ -1,0 +1,2 @@
+<web-view src="{{src}}"></web-view>  
+<loading hidden="{{!loading}}">加载中...</loading>

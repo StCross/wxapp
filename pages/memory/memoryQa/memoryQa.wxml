@@ -1,0 +1,62 @@
+<view class="header">
+  <scroll-view scroll-x="true">
+    <view class='optionsBox' scroll-x="true">
+      <view class="{{index === i?'current':''}} options" wx:for="{{tag}}" wx:key="{{v}}" wx:for-index="i" wx:for-item="v" bindtap='titleClick' data-tindex='{{i}}'>
+        <text>{{v}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- <view style="left: {{leftmove}}px" class='bar'></view> -->
+</view>
+
+<!-- 内容 -->
+<view class='main'>
+  <view class='list-box'>
+    <scroll-view scroll-y="true" style="height: 100%">
+      <block wx:if="{{curList.length !== 0&&index!=0}}">
+        <checkbox-group class="groups" bindchange="checkboxChange">
+          <label class="checkbox" wx:for="{{curList}}" wx:key="{{item.eventModelId}}">
+            <view class='etitle'>{{item.eventTitle}}</view>
+            <!-- <text class='i ic'></text>
+              <text class='i iic'></text> -->
+            <checkbox value="{{item.eventModelId}}" checked="{{item.checked}}" />{{item.value}}
+            <view wx:if="{{item.checked}}" class='lefticon'></view>
+          </label>
+        </checkbox-group>
+      </block>
+      <block wx:if="{{index===0}}">
+        <checkbox-group class="groups" bindchange="checkboxChange">
+        <block wx:for="{{selected}}" wx:key="{{item.id}}">
+          <label class="checkbox" >
+            <view class='etitle'>{{item.eventTitle}}</view>
+            <!-- <text class='i ic'></text>
+              <text class='i iic'></text> -->
+            <checkbox value="{{item.eventModelId}}" checked="{{item.checked}}" />{{item.value}}
+            <view wx:if="{{item.checked}}" class='lefticon'></view>
+          </label>
+        </block>
+        </checkbox-group>
+      </block>
+      <!-- <block wx:if="{{curList.length === 0}}">
+        暂无
+      </block> -->
+    </scroll-view>
+  </view>
+</view>
+<!-- 底部 -->
+<view class='footer'>
+  <view class='footerbox'>
+    <checkbox-group class="group">
+      <label class="checkbox" bindtap="clearSelected">
+        <!-- <checkbox value="" checked="{{selectAll[index]}}" /> -->
+        <!-- <text wx:if="{{chosed}}" class='i'></text>
+        <text wx:if="{{!chosed}}" class='ii'></text> -->
+        <text>已选择{{count}}个回忆点</text>
+      </label>
+    </checkbox-group>
+    <button bindtap="save" class='bcbtn'>保存</button>
+  </view>
+</view>
+
+<loading hidden="{{!loading}}">加载中...</loading>
+<loading hidden="{{!saveloading}}">保存中...</loading>

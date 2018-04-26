@@ -1,0 +1,14 @@
+/* .page__bd {
+  padding-top: 10px;
+} */
+.page__bd{
+  width: 100%;
+  height: 100%; 
+  background: #fff;
+  text-align: center;
+}
+.page__bd image{
+   width: 100%;   
+    //height: 100%;
+    //object-fit: contain;
+}

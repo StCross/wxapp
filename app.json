@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/memory/main/main",
+    "pages/memory/memoryGuide/memoryGuide",
+    "pages/memory/cover/cover",
+    "pages/memory/tree/tree",
+    "pages/memory/addPerson/addPerson",
+    "pages/memory/updatePerson/updatePerson",
+    "pages/memory/addTree/addTree",
+    "pages/memory/updateTree/updateTree",
+    "pages/memory/qaList/qaList",
+    "pages/memory/qaDetail/qaDetail",
+    "pages/memory/memorySet/memorySet",
+    "pages/memory/addnewMemory/addnewMemory",
+    "pages/memory/memoryLine/memoryLine",
+    "pages/memory/memoryDetail/memoryDetail",
+    "pages/memory/memoryAdd/memoryAdd",
+    "pages/memory/memoryEventEdit/memoryEventEdit",
+    "pages/memory/memoryModelEdit/memoryModelEdit",
+    "pages/memory/memoryQa/memoryQa",
+    "pages/memory/memoryShareLine/memoryShareLine",
+    "pages/memory/memoryShareDetail/memoryShareDetail",
+    "pages/memory/addmemoryShare/addmemoryShare"
+  ],
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "#313131",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "岁月回想录",
+    "navigationBarTextStyle": "black"
+  }
+}

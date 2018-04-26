@@ -1,0 +1,63 @@
+<form class='page-form' bindsubmit="formSubmit" bindreset="formReset">
+  <view class='page'>
+    <view class='page__bd page-body'>
+      <view class='weui-cells form-cells'>
+        <view class="weui-cell uploader-cell">
+          <view class="weui-cell__bd uploader-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__bd">
+                <block wx:if="{{tree.resourceInfo || avatarUrlLocal}}">
+                  <image src="{{avatarUrlLocal||tree.resourceInfo.urlToken || '/icon/default-cover.jpg'  }}" mode="aspectFill" />
+                </block>
+                <block wx:else>
+                  <image src="/icon/default-cover.jpg"></image>
+                </block>
+              </view>
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title uploader-title text-shadow" bindtap="onAvatarChange">
+                  {{avatarUrlLocal ? '' : '修改家谱封面'}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input name-cell">
+          <view class="weui-cell__bd weui-cell-border">
+            <input class="weui-input" name="nickname" value='{{tree.treeName||""}}' placeholder="家谱名称" disabled="{{!isEditable}}" />
+          </view>
+        </view>
+        <!-- <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">对外分享</view>
+          <view class="weui-cell__ft">
+            <switch name="isOpen" checked='{{tree.isOpen}}' disabled="{{!isEditable}}"  />
+          </view>
+        </view>  -->
+        <block wx:if="{{tree.creator && tree.creator.id}}">
+          <view class="user-cell">
+            <view class="user-cell-hd">
+              <view class="user-cell-left-label">创建人</view>
+            </view>
+            <view class="user-cell-avatar">
+              <image class="user-cell-avatar-image" src="{{tree.creator.avatarUrl || '/icon/avatar.png'}}" mode="aspectFill" />
+            </view>
+            <view class="user-cell-name">{{tree.creator.nickname}}</view>
+          </view>
+        </block>
+      </view>
+      <view class="page__bd_spacing form-bottom-buttons">
+        <button class="bottom-button" form-type="submit" type="primary" disabled="{{!isEditable}}">确定</button>
+        <!-- <block wx:if="{{isEditable && isDeletable}}">
+          <button class="bottom-button" type="default" bindtap='onDeleteTreeClick'>
+            <view class='delete-button-text'>删除家谱</view>
+          </button>
+        </block> -->
+        <!-- <block wx:if="{{!isEditable}}">
+          <button class="bottom-button" type="default" bindtap='onDeleteSharedTreeClick'>
+            不再查看此家谱
+          </button>
+        </block> -->
+      </view>
+    </view>
+  </view>
+</form>
+<loading hidden="{{!loading}}">上传中...</loading>

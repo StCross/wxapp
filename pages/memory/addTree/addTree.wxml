@@ -1,0 +1,43 @@
+<form class='page-form' bindsubmit="formSubmit" bindreset="formReset">
+  <view class='page'>
+    <view class='page__bd page-body'>
+      <view class='weui-cells form-cells'>
+        <view class="weui-cell uploader-cell">
+          <view class="weui-cell__bd uploader-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__bd">
+                <block wx:if="{{avatarUrlLocal}}">
+                  <image src="{{avatarUrlLocal}}" mode="aspectFill" />
+                </block>
+                <block wx:else>
+                  <image src="/icon/default-cover.jpg"></image>
+                </block>
+              </view>
+              <view class="weui-uploader__hd">
+                 <view class="weui-uploader__title uploader-title text-shadow" bindtap="onAvatarChange">
+                  {{avatarUrlLocal ? '' : '上传家谱封面'}}
+                </view> 
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input name-cell">
+          <view class="weui-cell__bd weui-cell-border">
+            <input class="weui-input" name="nickname" placeholder="家谱名称" focus="true" />
+          </view>
+        </view>
+        <!--<view class="weui-cell weui-cell_switch">-->
+          <!--<view class="weui-cell__bd">对外分享</view>-->
+          <!--<view class="weui-cell__ft">-->
+            <!--<switch name="isOpen" checked  />-->
+          <!--</view>-->
+        <!--</view>-->
+      </view>
+      <view class="page__bd_spacing form-bottom-buttons">
+        <button class="bottom-button" form-type="submit" type="primary">确定</button>
+        <!--<button class="bottom-button" type="default" bindtap="onCancel">取消</button>-->
+      </view>
+    </view>
+  </view>
+</form>
+<loading hidden="{{!loading}}">上传中...</loading>

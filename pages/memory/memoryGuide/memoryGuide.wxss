@@ -1,0 +1,95 @@
+/* pages/memory/memoryGuide/memoryGuide.wxss */
+.header{
+    width: 100%;
+    height: 300rpx;
+    box-shadow: 2px 2px 3px #c9c9c9;
+}
+.header image{
+    width: 100%;
+    height: 300rpx;
+    object-fit: cover;
+}
+.main{
+    padding: 22rpx 0;
+    font-size: 32rpx;
+}
+.creator{  
+    padding: 22rpx 22rpx 0;
+    background: #fff;
+    margin-bottom: 20rpx;
+    border-top: 1rpx solid #e5e5e5;
+}
+.shade{
+    display: flex;
+    flex-direction:column-reverse; 
+    height: 220rpx; 
+    border-radius: 6rpx; 
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.tree-image-container {
+    flex: 5;
+}
+.tree-image {
+    width: 100%;
+    height: 100%;
+}
+.create-person{
+    /*flex: 1;*/
+    background: #fff;
+    color: #97B82B;
+    /* padding: 0 20rpx; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.picture{
+    margin-right: 36rpx;
+}
+.picture text, .story text{
+    font-size: 30rpx;
+}
+.count{
+    margin-left: 10rpx;
+}
+.person{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-size: 36rpx;
+    padding: 8rpx 0;
+    /*margin-bottom: 10rpx;*/
+}
+.personImg{
+  display: block;
+  width: 65rpx;
+  height: 65rpx;
+  margin-right: 18rpx;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.person text {
+  font-size: 32rpx;
+}
+.create{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 246rpx;
+    /*margin-top: 24rpx;*/  
+    background-color: #fff;
+    border-top: 1rpx solid #e5e5e5;
+}
+.Img{
+    width: 80rpx;
+    height: 80rpx;
+    margin-bottom: 24rpx;
+}
+.Img image{
+    width: 100%;
+    height: 100%;
+}

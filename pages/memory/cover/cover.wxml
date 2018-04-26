@@ -1,0 +1,57 @@
+<view class='family'>
+  <view class='header' bindtap='onHeaderClick'>
+    <image src="../../../icon/banner.jpg" mode="aspectFill"></image>
+     <view class='helper-button' catchtap='onQAClick'>
+      <image src='/icon/qa.png' mode="aspectFill"></image>
+    </view> 
+  </view>
+  <view class='main'>
+    <block wx:if='{{tree_list && tree_list.length > 0}}'>
+      <view class='tree-list-header'>
+        <view class='tree-list-header-text'>我创建的家谱</view>
+      </view>
+      <block wx:for='{{tree_list}}' wx:key='{{item.treeId}}'>
+        <view class='creator'
+              style='background-image: url({{item.resourceInfo.urlToken || "https://static.sysshu.com/static/img/memoir/default_cover_family.jpg "}});'
+              
+              bindtap='onTreeClick' data-tree-id='{{item.treeId}}' bindlongtap='onTreeLongTap'>
+          <view class='create-person-shadow gradient-bottom-to-top'>
+            <view class='create-person'>
+              <view class='person'>
+                <text class='tree-name-text'>{{item.treeName}}</text>
+                <!--<image src="../../icon/edit-back.png"></image>-->
+              </view>
+              <text class='count'>人数 {{item.personNum}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:if='{{sharedTreeList && sharedTreeList.length > 0}}'>
+      <view class='tree-list-header'>他人分享的家谱</view>
+      <block wx:for='{{sharedTreeList}}' wx:key='{{item.id}}'>
+        <view class='creator'
+              style='background-image: url({{item.imageUrl || "https://ohc5vthqm.qnssl.com/tree/2017-3-2/tree-default-cover.jpg"}});'
+              bindtap='onTreeClick' data-tree-id='{{item.id}}' bindlongtap='onSharedTreeLongTap'>
+          <view class='create-person-shadow gradient-bottom-to-top'>
+            <view class='create-person'>
+              <view class='person'>
+                <text class='tree-name-text'>{{item.treeName}}</text>
+                <!--<image src="../../icon/edit-back.png"></image>-->
+              </view>
+              <text class='count'>人数 {{item.personNum}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <view class='tree-list-header'>创建新的家谱</view>
+    <view class='create' bindtap="onAddTreeClick">
+      <view class='Img'>
+        <image src="../../../icon/create-person.png"></image>
+      </view>
+      创建家谱
+    </view>
+  </view>
+</view>
+<loading hidden="{{!loading}}">加载中...</loading>
